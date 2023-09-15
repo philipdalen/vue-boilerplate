@@ -1,0 +1,7 @@
+*.d.ts
+build/
+dist/
+node_modules/
+tailwind.config.js
+postcss.config.js
+src/auto-imports.d.ts

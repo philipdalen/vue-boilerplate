@@ -1,0 +1,82 @@
+{
+  "root": true,
+  "extends": [
+    "./node_modules/gts",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:vue/vue3-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:security/recommended",
+    "prettier",
+    "./.eslintrc-auto-import.json"
+  ],
+  "env": {
+    "node": true
+  },
+  "ignorePatterns": ["vite.config.ts", "service-worker.js"],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2021,
+    "project": "./tsconfig.json",
+    "extraFileExtensions": [".vue"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "vue/max-len": [
+      "error",
+      {
+        "code": 110,
+        "template": 500
+      }
+    ],
+    "quotes": ["error", "double"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "object-curly-spacing": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "id-length": "off",
+    "eol-last": ["error", "always"],
+    "no-var": "error",
+    "no-console": "off",
+    "no-debugger": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "_" }],
+    "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }],
+    "node/no-missing-import": "off",
+    "no-empty-interface": "off",
+    "security/detect-object-injection": "off",
+    "node/no-unpublished-import": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/require-explicit-emits": "off",
+    "import/no-named-as-default-member": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/pages/**/*.vue"],
+      "rules": {
+        "vue/multi-word-component-names": "off"
+      }
+    },
+    {
+      "files": ["./**/*.js"],
+      "parserOptions": {
+        "ecmaVersion": 2021
+      },
+      "rules": {}
+    }
+  ],
+  "globals": {
+    "defineProps": "readonly",
+    "defineEmits": "readonly",
+    "defineExpose": "readonly",
+    "withDefaults": "readonly"
+  }
+}
